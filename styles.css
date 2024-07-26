@@ -26,7 +26,7 @@ body {
 
 /* Стилі для кнопки "Пуск" */
 .taskbar .start-button {
-    background: url('/img/free-icon-windows-220215.png') no-repeat center center;
+    background: url('img/free-icon-windows-220215.png') no-repeat center center;
     width: 50px; /* Оптимальна ширина */
     height: 50px; /* Оптимальна висота */
     cursor: pointer;
