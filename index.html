@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рабочий стол</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="desktop">
+        <div class="folder" ondblclick="openFolder('myComputer')">
+            <img src="img/computer_17069554.png" alt="Мій ПК">
+            <span>Мій ПК</span>
+        </div>
+        <div class="folder" ondblclick="openFolder('folder2')">
+            <img src="img/document_1542001.png" alt="Документи">
+            <span>Документи</span>
+        </div>
+    </div>
+
+    <div class="popup" id="myComputer">
+        <div class="popup-header">
+            <span>Мій ПК</span>
+            <button class="close-btn" onclick="closeFolder('myComputer')">×</button>
+        </div>
+        <div class="popup-content">
+            <ul>
+                <li ondblclick="openFolder('diskC')"><img src="/img/hot_6230018.png" alt="" width="90px">Диск С</li>
+                <li ondblclick="openFolder('diskD')"><img src="/img/hard-drive_2029252.png" alt="" width="90px">Диск D</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="popup" id="diskC">
+        <div class="popup-header">
+            <span>Диск С</span>
+            <button class="close-btn" onclick="closeFolder('diskC')">×</button>
+        </div>
+        <div class="popup-content">
+            <ul>
+                <li ondblclick="openFolder('programFiles')"><img src="/img/folder_17069375.png" alt="" width="24px">Program Files</li>
+                <li ondblclick="openFolder('programFilesX86')"><img src="/img/folder_17069375.png" alt="" width="24px">Program Files (x86)</li>
+                <li ondblclick="openFolder('users')"><img src="/img/folder_17069375.png" alt="" width="24px">Users</li>
+                <li ondblclick="openFolder('windows')"><img src="/img/folder_17069375.png" alt="" width="24px">Windows</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="popup" id="programFiles">
+        <div class="popup-header">
+            <span>Program Files</span>
+            <button class="close-btn" onclick="closeFolder('programFiles')">×</button>
+        </div>
+        <div class="popup-content">
+            <p>Зміст папки Program Files...</p>
+        </div>
+    </div>
+
+    <div class="popup" id="programFilesX86">
+        <div class="popup-header">
+            <span>Program Files (x86)</span>
+            <button class="close-btn" onclick="closeFolder('programFilesX86')">×</button>
+        </div>
+        <div class="popup-content">
+            <p>Зміст папки Program Files (x86)...</p>
+        </div>
+    </div>
+
+    <div class="popup" id="users">
+        <div class="popup-header">
+            <span>Users</span>
+            <button class="close-btn" onclick="closeFolder('users')">×</button>
+        </div>
+        <div class="popup-content">
+            <p>Зміст папки Users...</p>
+        </div>
+    </div>
+
+    <div class="popup" id="windows">
+        <div class="popup-header">
+            <span>Windows</span>
+            <button class="close-btn" onclick="closeFolder('windows')">×</button>
+        </div>
+        <div class="popup-content">
+            <p>Зміст папки Windows...</p>
+        </div>
+    </div>
+
+    <div class="popup" id="diskD">
+        <div class="popup-header">
+            <span>Диск D</span>
+            <button class="close-btn" onclick="closeFolder('diskD')">×</button>
+        </div>
+        <div class="popup-content">
+            <a href="https://cloud.krainamriy.fun/index.php/f/229118" download="file">KMS</a>
+        </div>
+    </div>
+    
+
+  <div class="popup" id="folder2">
+    <div class="popup-header">
+        <span>Документи</span>
+        <button class="close-btn" onclick="closeFolder('folder2')">×</button>
+    </div>
+    <div class="popup-content">
+        <button onclick="showCreateFilePopup()">Створити файл</button>
+        <button onclick="deleteSelectedFile()">Видалити вибраний файл</button>
+        <button onclick="showCreateFolderPopup()">Створити папку</button> <!-- Додана кнопка -->
+        <ul id="file-list">
+            <li ondblclick="openFile('file1')" data-file-id="file1">Файл 1</li>
+            <li ondblclick="openFile('file2')" data-file-id="file2">Файл 2</li>
+        </ul>
+    </div>
+</div>
+
+    <div class="popup" id="file1">
+        <div class="popup-header">
+            <span>Файл 1</span>
+            <button class="close-btn" onclick="closeFile('file1')">×</button>
+        </div>
+        <div class="popup-content">
+            <textarea id="content-file1" rows="20" cols="50">Содержимое файла 1.</textarea>
+        </div>
+    </div>
+
+    <div class="popup" id="file2">
+        <div class="popup-header">
+            <span>Файл 2</span>
+            <button class="close-btn" onclick="closeFile('file2')">×</button>
+        </div>
+        <div class="popup-content">
+            <textarea id="content-file2" rows="20" cols="50">Содержимое файла 2.</textarea>
+        </div>
+    </div>
+
+    <div class="taskbar">
+        <div class="start-button" onclick="toggleStartMenu()"></div>
+        <div class="clock" id="clock"></div>
+    </div>
+
+    <div class="start-menu" id="startMenu">
+        <ul>
+            <li onclick="openFolder('myComputer')">Мой компьютер</li>
+            <li onclick="openFolder('folder2')">Документи</li>
+            <li onclick="alert('Office 365')">Office 365</li>
+            <li onclick="alert('7zip')">7zip</li>
+        </ul>
+    </div>
+
+    <div class="popup" id="createFilePopup">
+        <div class="popup-header">
+            <span>Создать новый файл</span>
+            <button class="close-btn" onclick="closeCreateFilePopup()">×</button>
+        </div>
+        <div class="popup-content">
+            <input type="text" id="newFileName" placeholder="Введите имя файла">
+            <button onclick="createNewFile()">Создать</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

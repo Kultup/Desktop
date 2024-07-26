@@ -1,0 +1,248 @@
+/* Основні стилі для тіла */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('img/img28.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Шрифт, схожий на Windows 11 */
+    color: #e1e1e1; /* Світлий колір тексту для кращого контрасту */
+    user-select: none;
+}
+
+/* Стилі для панелі завдань */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #222; /* Темніший фон для панелі завдань */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.4); /* Легка тінь */
+    z-index: 9999;
+}
+
+/* Стилі для кнопки "Пуск" */
+.taskbar .start-button {
+    background: url('/img/free-icon-windows-220215.png') no-repeat center center;
+    width: 50px; /* Оптимальна ширина */
+    height: 50px; /* Оптимальна висота */
+    cursor: pointer;
+    background-size: contain; /* Вирівнювання іконки */
+}
+
+/* Стилі для годинника */
+.taskbar .clock {
+    color: #c4c4c4; /* Світліший колір для годинника */
+    font-size: 16px; /* Оптимальний розмір для годинника */
+    margin-right: 20px;
+}
+
+/* Стилі для робочого столу */
+.desktop {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Стилі для папок на робочому столі */
+.desktop .folder {
+    width: 100px; /* Ширина */
+    height: 140px; /* Висота */
+    margin: 15px; /* Відступи */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s; /* Швидші ефекти при наведенні */
+}
+
+/* Стилі для іконок папок */
+.desktop .folder img {
+    width: 100px; /* Ширина */
+    height: 100px; /* Висота */
+    border-radius: 8px; /* Круглі кути */
+}
+
+/* Стилі для тексту під іконками */
+.desktop .folder span {
+    display: block;
+    color: #e1e1e1; /* Світліший колір тексту */
+    font-size: 14px; /* Оптимальний розмір шрифту */
+    margin-top: 8px; /* Відступ */
+}
+
+/* Ефекти при наведенні на папки */
+.desktop .folder:hover {
+    transform: scale(1.05); /* Легке збільшення */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Легка тінь */
+}
+
+/* Стилі для спливаючих вікон */
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #f0f0f0; /* Світліший фон */
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Легка тінь */
+    color: #333;
+    width: 90%; /* Ширина */
+    height: 80%; /* Висота */
+    max-width: 800px; /* Максимальна ширина */
+    max-height: 600px; /* Максимальна висота */
+    overflow-y: auto; /* Прокручування */
+    z-index: 1000;
+    border-radius: 8px; /* Круглі кути */
+}
+
+/* Стилі для заголовка спливаючого вікна */
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0078d4; /* Колір заголовка Windows 11 */
+    color: white;
+    padding: 10px 15px; /* Відступи */
+    border-radius: 8px 8px 0 0; /* Круглі кути для верхньої частини */
+}
+
+/* Стилі для вмісту спливаючого вікна */
+.popup-content {
+    padding: 15px; /* Відступи */
+    height: calc(100% - 60px); /* Висота з урахуванням заголовка */
+    overflow-y: auto; /* Прокручування */
+}
+
+/* Стилі для кнопки закриття */
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px; /* Розмір кнопки закриття */
+    cursor: pointer;
+}
+
+/* Стилі для меню "Пуск" */
+.start-menu {
+    display: none;
+    position: fixed;
+    bottom: 60px; /* Висота панелі завдань */
+    left: 0;
+    width: 250px; /* Ширина меню */
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    z-index: 999;
+    padding: 10px; /* Відступи */
+}
+
+/* Стилі для списку в меню "Пуск" */
+.start-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Стилі для пунктів меню */
+.start-menu ul li {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px; /* Розмір шрифту */
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    background: #f9f9f9;
+    border-radius: 6px;
+    text-align: center;
+    transition: background 0.3s; /* Ефект при наведенні */
+}
+
+/* Ефекти при наведенні на пункти меню */
+.start-menu ul li:hover {
+    background: #e0e0e0; /* Зміна фону при наведенні */
+}
+
+/* Стилі для текстових полів */
+textarea {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc; /* Рамка текстового поля */
+    border-radius: 6px; /* Круглі кути */
+    resize: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Шрифт */
+    font-size: 14px; /* Розмір шрифту */
+    padding: 10px; /* Відступи всередині текстового поля */
+}
+
+/* Стилі для вибраних файлів у списку */
+#file-list li.selected {
+    background-color: #d0e9ff; /* Світліший колір для вибраних файлів */
+}
+
+/* Стилі для кнопок */
+button {
+    background: #0078d4; /* Основний колір кнопок */
+    color: white;
+    border: none;
+    border-radius: 6px; /* Круглі кути */
+    padding: 10px 20px; /* Відступи */
+    font-size: 16px; /* Розмір шрифту */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Ефекти при наведенні */
+}
+
+/* Ефекти при наведенні на кнопки */
+button:hover {
+    background: #005a9e; /* Темніший колір при наведенні */
+    transform: scale(1.05); /* Легке збільшення */
+}
+
+/* Стилі для форм */
+form {
+    background: #ffffff; /* Білий фон для форм */
+    padding: 20px;
+    border-radius: 8px; /* Круглі кути */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Легка тінь */
+}
+
+/* Стилі для міток форм */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px; /* Розмір шрифту */
+    color: #333; /* Колір тексту */
+}
+
+/* Стилі для полів вводу в формах */
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Стилі для кнопки створення папки */
+.create-folder-button {
+    background-color: #0078d4; /* Основний колір кнопки */
+    color: white;
+    border: none;
+    border-radius: 6px; /* Круглі кути */
+    padding: 10px 20px; /* Відступи */
+    font-size: 16px; /* Розмір шрифту */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Ефекти при наведенні */
+    position: fixed;
+    bottom: 80px; /* Відстань від нижнього краю */
+    left: 20px; /* Відстань від лівого краю */
+}
+
+/* Ефекти при наведенні на кнопку створення папки */
+.create-folder-button:hover {
+    background-color: #005a9e; /* Темніший колір при наведенні */
+    transform: scale(1.05); /* Легке збільшення */
+}
